@@ -107,7 +107,7 @@ document.querySelector('.buttons').onclick = (event) => {
 
             case"Х²":
             if(a !== '') {
-                a = Math.pow(+a);
+                a = a*a;
                 out.textContent = a;
             }
             break;
@@ -133,7 +133,7 @@ document.querySelector('.buttons').onclick = (event) => {
           out.textContent = str || '0';
         }
         return;
-        
+
         document.querySelector('.backspase').onclick = backspase;
       }
     
