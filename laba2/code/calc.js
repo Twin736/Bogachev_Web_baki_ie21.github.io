@@ -100,10 +100,9 @@ document.querySelector('.buttons').onclick = (event) => {
                     }    
             case"√":
             if(a !== '') {
-                a = Math.sqrt(+a);
+                a = Math.sqrt(a);
                 out.textContent = a;
             }
-            break;
 
             case"Х²":
             if(a !== '') {
