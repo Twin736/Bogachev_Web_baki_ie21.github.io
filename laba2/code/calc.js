@@ -4,7 +4,7 @@ let sign = ''; // знак операции
 let finish  = false;
 
 const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-const action = ['-', '+', 'X', '/', '+/-', '%'];
+const action = ['-', '+', 'X', '/', '+/-', '%','√','Х²'];
 
 // экран 
 const out = document.querySelector('.calc-screen p');
@@ -56,7 +56,7 @@ document.querySelector('.buttons').onclick = (event) => {
         console.table(a, b , sign);
         return;
     }
-
+    
     // нажата =
     if (key === '=') {
         if (b ==='') b = a;
@@ -98,6 +98,19 @@ document.querySelector('.buttons').onclick = (event) => {
                         b = String(b / 100);
                         out.textContent = b;
                     }    
+            case"√":
+            if(a !== '') {
+                a = Math.sqrt(+a);
+                out.textContent = a;
+            }
+            break;
+
+            case"Х²":
+            if(a !== '') {
+                a = Math.pow(+a);
+                out.textContent = a;
+            }
+            break;
 
         }
         finish = true;
@@ -105,21 +118,31 @@ document.querySelector('.buttons').onclick = (event) => {
         console.table(a, b , sign);
     }
 
+    if(event.target.classList.contains('backspase')) {
+        if (!finish) {
+          let str = '';
+          if (b !== '') {
+            str = b.slice(0, -1);
+            b = str;
+          } else if (sign !== '') {
+            sign = '';
+          } else {
+            str = a.slice(0, -1);
+            a = str;
+          }
+          out.textContent = str || '0';
+        }
+        return;
+        
+        document.querySelector('.backspase').onclick = backspase;
+      }
+    
+     
+
 }
-
-// document.getElementById("nt").addEventListener("click", function() {
-//     var calc = document.querySelector('.calc');
-//     if (calc.style.background === "#f0adad") {
-//       calc.style.background = "#333";
-//       calc.style.color = "#fff";
-//     } else {
-//       calc.style.background = "#f0adad";
-//       calc.style.color = "#000";
-//     }
-//   });
-
+ 
 function darkmode() {
-    const body =document.body
+    const body = document.body
     const wasDarkmode = localStorage.getItem('darkmode') ==='true'
 
     localStorage.setItem('darkmode', !wasDarkmode)

@@ -1,5 +1,5 @@
 .calc{
-    width: 300px;
+    width:350px;
     height: 500px;
     margin: 50px auto;
     border-radius: 20px;
@@ -29,11 +29,11 @@
 .buttons {
     display: grid;
     grid-template-areas:
-    "ac plus-minus prosent division"
-    "seven eight nine myltiply"
-    "four five six minus"
-    "one two three plus"
-    "zero zero dot equal";
+    "ac plus-minus prosent backspase division"
+    "seven eight nine squareroot myltiply"
+    "four five six square minus"
+    "one two three factorial plus"
+    "zero zero dot 000 equal";
     grid-gap: 7px;
     justify-items: centre;
 }
