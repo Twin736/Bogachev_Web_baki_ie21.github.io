@@ -5,7 +5,7 @@ let finish = false;
 
 
 const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-const action = ['-', '+', 'X', '/', '+/-', '%'];
+const action = ['-', '+', 'X', '/', '+/-', '%','Х²'];
 
 //экран
 const out = document.querySelector('.calc-screen p')
@@ -111,14 +111,7 @@ document.querySelector('.buttons').onclick = (event) => {
 
         document.querySelector('.backspase').onclick = backspase;
     }
-    // нажата кнопка x²
-    if (key === 'x²') {
-        if (a !== '' && b === '') {
-            a = Math.pow(parseFloat(a), 2);
-            out.textContent = a.toFixed(8);
-        }
-        return;
-    }
+    
     // нажата кнопка x!
     if (key === '!') {
         if (a !== '' && b === '') {
@@ -179,6 +172,13 @@ document.querySelector('.buttons').onclick = (event) => {
                     out.textContent = a;
                 }
                 break;
+
+            case"Х²":
+            if(a !== '') {
+                a = a*a;
+                out.textContent = a;
+            }
+            break;
 
         }
         finish = true;
